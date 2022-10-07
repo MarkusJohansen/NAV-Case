@@ -9,11 +9,12 @@ import java.util.Collections;
  */
 public class Bruker {
 
-    double dagpengerSats;
-    boolean rettTilDagpenger;
-    ArrayList<Double> inntektsÅr;
+    private boolean rettTilDagpenger;
+    private ArrayList<Double> inntektsÅr;
+    private double dagpengerSats = 0;
 
-    final double G = 111477;
+    //Grunnbeløpet er offentlig statistikk og trenger derfor ikke å skjules
+    public double G = 111477;
 
     /**
      * Initialiserer et bruker objekt: Et menneske som søker om dagpenger.
@@ -56,7 +57,7 @@ public class Bruker {
      * @return inntektÅr
      */
     public ArrayList<Double> getInntektsÅr() {
-        return inntektsÅr;
+        return new ArrayList<Double>(inntektsÅr);
     }
 
 
@@ -125,7 +126,6 @@ public class Bruker {
         return Math.ceil(finnDagpengeGrunnlag() / 260);
     }
 
-
     /**
      * ToString metode for testing av klassen.
      * @return String som representerer et bruker objekt. Viser oversikt over felter.
@@ -138,11 +138,4 @@ public class Bruker {
                 "\ninntektsÅr=" + inntektsÅr +
                 "\n}";
     }
-
-    public static void main(String[] args) {
-        Bruker b = new Bruker(500000, 450000, 400000);
-        System.out.println(b);
-    }
-
-
 }
